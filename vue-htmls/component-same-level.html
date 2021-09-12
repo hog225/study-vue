@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <app-header v-bind:propsdata="num"></app-header>
+        <app-content v-on:pass="setNum"></app-content>
+        {{ str }}
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+
+        var appHeader = {
+            template: '<header1>Click Me {{propsdata}}</header1>',
+            props: ['propsdata']
+        }
+
+        var appContent = {
+            template: '<button v-on:click="passNumber">pass</button>',
+            methods: {
+                passNumber: function () {
+                    this.$emit('pass', 10);
+                }
+            }
+        }
+
+        new Vue({
+            el: '#app',
+            components: {
+                'app-header': appHeader,
+                'app-content': appContent
+            },
+            methods: {
+                // 이벤트 인자 
+                setNum: function(val){
+                    this.num = val
+                }
+            },
+
+            data: {
+                num: 0
+            }
+        })
+    </script>
+</body>
+</html>
