@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button v-on:click="onClick">Click Me</button>
+        <button v-on:dblclick="onDblClick">double Click Me</button>
+        <input type="text" v-on:keyup.enter="onEnter">
+        <button>Enter</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            methods: {
+                onClick: function(){
+                    console.log("clicked")
+                },
+                onDblClick: function () {
+                    console.log("dblClick")
+                },
+                onEnter: function(){
+                    
+                }
+            }
+        })
+    </script>
+</body>
+</html>
