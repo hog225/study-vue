@@ -15,7 +15,12 @@
 <script>
 import AppHeader from './components/AppHeader.vue'
 import FormMain from './components/FormMain.vue'
+import router from './router'
+import store from './store'
+
 export default {
+  store,
+  router,
   data: function(){
     return {
       str: 'hi',

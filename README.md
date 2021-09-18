@@ -20,7 +20,7 @@
 2. div#id + tab
 3. vue + tab(vue 파일 에서) - vue 템플릿을 만들수 있다. 
 
-## 도옴 될만한 ..
+## Help.. 
 1. https://jsonplaceholder.typicode.com/ //request를 날려볼 수 있는 ..
 
 
