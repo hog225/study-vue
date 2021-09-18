@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="app">
     {{ str }}
     <app-header 
       v-bind:propsdata="headerStr"
@@ -8,6 +8,7 @@
       <br />
       <p>----------------------------------------------------</p>
     <form-main></form-main>
+    <router-view></router-view>
   </div>
 
 </template>
@@ -15,12 +16,13 @@
 <script>
 import AppHeader from './components/AppHeader.vue'
 import FormMain from './components/FormMain.vue'
-import router from './router'
+//import router from './router'
 import store from './store'
+
 
 export default {
   store,
-  router,
+  //router,
   data: function(){
     return {
       str: 'hi',
