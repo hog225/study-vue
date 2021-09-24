@@ -165,6 +165,20 @@ https://vuejs.org/v2/guide/forms.html#Text
       - template 안에는 하나의 root 엘리먼트만 위치 시킬 수 있다. 
       - script 에서는 data 프로퍼티에 Object 를 바로 쓸수 없고 함수 형식으로 선언해서 써야 한다. 
 
+11. vuex
+    - 상태관리 패턴 이자 라이브러리 
+    - 컴포넌트 많을시 관리하기 위해 
+    - Flux 패턴 하나의 View 가 변했을때 이 변화를 다른 View 에 쉽게 전파하기 위해 
+        ![flux](./img/flux.png)
+    - [MVC, Flux 패턴의 차이](https://beomy.tistory.com/44)
+    - state(data), getters(computed), mutations(method), actions(비동기 Methods)
+        - getters: state 에 접근하기 위한 것 state 값을 가공하여 Return 할 수 있다. 
+    - Helper Vuex 를 좀더 쉽게 쓰기 위함 
+
+12. v-model 
+    - 테그에 쓰이며 데이터를 매핑 
+13. created 
+    - lifecycle hook when created 
 
 
 ## 참조 
