@@ -3,8 +3,11 @@
       <ul>
           <li v-for="(todoitem, index) in this.$store.state.todoItems" v-bind:key="todoitem">
               
+            <input type="checkbox" class="checkBtn" 
+            v-on:click="setChecked(todoitem.item, checked)" v-model="todoitem.checked">
+              
               <!-- <input type="checkbox" class="checkBtn" v-on:click="toggleComp"> -->
-              {{ todoitem }}
+              {{ todoitem.item }} {{todoitem.checked}}
               <button v-on:click="deleteTodo(todoitem, index)">Del</button>
           </li>
       </ul>
@@ -16,7 +19,8 @@ export default {
    
     data: function() {
         return {
-            todoItems: []
+            todoItems: [],
+            checked: true,
         }
     },
      // 라이프 사이클 훅 
@@ -32,11 +36,20 @@ export default {
     methods:{
         deleteTodo: function(todoitem, index) {
             console.log(todoitem, index)
-            localStorage.removeItem(todoitem)
-            // 배열 내용 삭제 
-            this.todoItems.splice(index, 1);
+            this.$store.commit("deleteOnItem",{
+                item: todoitem,
+                index: index
+            })
 
         },
+        isChecked: function(item) {
+            item ? "checked":""
+        },
+        setChecked: function(item, checked){
+            this.$store.commit("toggleChecked", {
+                item, checked
+            })
+        }
         // toggleCom: function(){
         //     console.log('toogle  ')
         // }
@@ -46,4 +59,9 @@ export default {
 
 <style>
 
+.checkBtn {
+    margin: 0;
+    padding: 0;
+    width: 10%;
+}
 </style>

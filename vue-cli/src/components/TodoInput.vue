@@ -18,7 +18,8 @@ export default {
             // console.log(this.newTodoItem)
             // localStorage.setItem(this.newTodoItem, this.newTodoItem)
             this.$store.commit("addOnItem", {
-                item: this.newTodoItem
+                item: this.newTodoItem,
+                checked: false
             })
             this.newTodoItem = '';
         }

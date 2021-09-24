@@ -11,9 +11,18 @@ const storage = {
         {
             for (let i=0; i < localStorage.length; i++){
                 if (localStorage.key(i) != "loglevel:webpack-dev-server")
-                    arrs.push(localStorage.key(i))
+                    console.log(localStorage.key(i))
+                    try{
+                        let objs = JSON.parse(localStorage.getItem(localStorage.key(i)));
+                        arrs.push(objs);
+                        console.log(objs)
+                    } catch( e){
+                        console.log(e)
+                    }
+                    
             }
         }
+        console.log("df ", )
         return arrs;
     
     }
@@ -32,8 +41,29 @@ const store = new Vuex.Store({
         mutations: {
             addOnItem: (state, payload) => {
                 console.log(payload)
-                state.todoItems.push(payload.item)
-                localStorage.setItem(payload.item, payload.item)
+                state.todoItems.push(payload)
+                
+                localStorage.setItem(payload.item, JSON.stringify(payload))
+            },
+            deleteOnItem: (state, payload) => {
+                console.log(payload)
+                state.todoItems.splice(payload.index, 1);
+                localStorage.removeItem(payload.item.item)
+            },
+            toggleChecked: (state, payload) => {
+                
+                try{
+                    console.log(payload)
+                    let objs = JSON.parse(localStorage.getItem(payload.item));
+                    console.log(objs)
+                    objs.checked = payload.checked
+
+                    localStorage.setItem(payload.item, JSON.stringify(objs))
+
+                } catch (e){
+                    console.log(e)
+                }
+
             }
         }
     })
