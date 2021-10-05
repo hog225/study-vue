@@ -119,7 +119,7 @@ https://vuejs.org/v2/guide/forms.html#Text
     - 같은 레벨에서 통신 
       - 주려는 쪽에선 Event 로 올리고 받으려는 쪽에서는 props 로 내린다. 
       - ```$emit('pass', 10)``` 을 할 경우 Vue 인스턴스의 Methods 프로퍼티의 함수에서 인자 10 을 받을 수 있다. 
-6. Vue 라우터 
+6. Vue Router 
     - 싱글 페이지 앱을 쉽게 만들어 준다. 페이지 이동 관련 기능을 담당한다. 
     - router-view tag 에 컴포넌트가 나온다. 
     ```javascript
@@ -142,6 +142,7 @@ https://vuejs.org/v2/guide/forms.html#Text
     - router-link 화면에서 링크를 연결해주는 기능 ```<a href="">``` 와 비슷한 기능 
       - ```<router-link to="/main">Main</router-link>```
     - router 의 compoenent 는 하나이다. 
+    - meta : 데이터에 대한 데이터 .. 데이터 검색을 위한 인덱스 같은 것 
 
 7. axios 
     - Vue 공식 HTTP 라이브러리 예전에는 Vue Resource 였다. 
@@ -174,6 +175,13 @@ https://vuejs.org/v2/guide/forms.html#Text
     - state(data), getters(computed), mutations(method), actions(비동기 Methods)
         - getters: state 에 접근하기 위한 것 state 값을 가공하여 Return 할 수 있다. 
     - Helper Vuex 를 좀더 쉽게 쓰기 위함 
+      - mapActions: store.dispatch 를 mapping 
+         ```javascript
+         method:{
+             ...mapActions("fe", ["setView"])
+         }
+
+         ```
 
 12. v-model 
     - 테그에 쓰이며 데이터를 매핑 

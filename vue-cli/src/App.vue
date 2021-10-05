@@ -1,53 +1,60 @@
 <template>
   <div id="app">
-    
-      <TodoHeader></TodoHeader>
-      <TodoInput></TodoInput>
-      <TodoList></TodoList>
-      <TodoFooter></ToDoFooter>
-
+    {{ str }}
+    <app-header 
+      v-bind:propsdata="headerStr"
+      v-on:renew="renewStr"
+      ></app-header>
+      <br />
+      <p>----------------------------------------------------</p>
+    <form-main></form-main>
+    <p>{{ HELLO.helloKey }}</p>
+    <button v-on:click="updateStore">Store Test</button>
+    <router-view></router-view>
   </div>
+
 </template>
 
 <script>
-
-import TodoHeader from './components/TodoHeader.vue'
-import TodoInput from './components/TodoInput.vue'
-import TodoList from './components/TodoList.vue'
-import TodoFooter from './components/TodoFooter.vue'
-import store from './store/index'
-
-// var my_comp = {
-//     template: '<div>my Component </div>'
-// };
-
+import { mapState } from 'vuex'
+import AppHeader from './components/AppHeader.vue'
+import FormMain from './components/FormMain.vue'
+import router from './router'
+import store from './store'
 
 
 export default {
-    store,
-    components:{
-        'TodoHeader': TodoHeader,
-        'TodoInput': TodoInput,
-        'TodoList': TodoList,
-        'TodoFooter': TodoFooter,
-    
+  store,
+  router,
+  data: function(){
+    return {
+      str: 'hi',
+      headerStr: 'header',
+      storeVal: store.state.HELLO.helloKey
     }
+  },
+  components: {
+    'app-header': AppHeader,
+    'form-main': FormMain
+  },
+  methods: {
+    renewStr: function(){
+      this.headerStr = "power"
+    },
+    updateStore: function() {
+      console.log(store)
+      store.commit('HELLO/setHelloKey', 'fef');
+      //store.dispatch('HELLO/getHelloKey')
+    }
+  },
+  computed: {
+    ...mapState(["HELLO"])
+  }
+
 
 }
 </script>
 
 <style>
-body {
-    text-align: center;
-    background-color: aliceblue;
-}
 
-input {
-    border-style: groove;
-    width: 200px;
-}
-button {
-    border-style: groove;
-    
-}
 </style>
