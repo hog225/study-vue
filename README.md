@@ -153,7 +153,8 @@ https://vuejs.org/v2/guide/forms.html#Text
     - v-show dom 은 남겨 놓고 display option 만 display 안하게 한다. 
 9. watch 와 computed
     - watch
-      - data의 값의 변화를 추적할 수 있다. 뭔가 무거운 작업 데이터를 받아서 요청하는 경우 
+      - data의 값의 변화를 추적할 수 있다. 뭔가 무거운 작업 데이터를 받아서 요청하는 경우
+      - data 를 감시하고 그 데이터가 변하면 무언가를 실행하라 .. 
     - computed
       - 인스턴스 안의 데이터를 가지고 연산 작업을 할 수 있다. Validation 값을 측정할때 간단하 테스트 연산, 튜닝이 잘되어 있음으로 빠르다.
 
@@ -175,6 +176,7 @@ https://vuejs.org/v2/guide/forms.html#Text
     - state(data), getters(computed), mutations(method), actions(비동기 Methods)
         - getters: state 에 접근하기 위한 것 state 값을 가공하여 Return 할 수 있다. 
     - Helper Vuex 를 좀더 쉽게 쓰기 위함 
+      - mapMutation: action 인데 동기적으로 동작하는 것 같음 
       - mapActions: store.dispatch 를 mapping 
          ```javascript
          method:{
@@ -182,10 +184,14 @@ https://vuejs.org/v2/guide/forms.html#Text
          }
 
          ```
-
-12. v-model 
+      - mapState: state 를 쉽게 쓰기 위한 helper 함수 
+12. 라이프사이클 
+    - created : 인스턴스 생성 후 호출
+    - mounted, updated, destroyed
+    - [뷰 라이프 사이클](https://kr.vuejs.org/v2/guide/instance.html#%EB%9D%BC%EC%9D%B4%ED%94%84%EC%82%AC%EC%9D%B4%ED%81%B4-%EB%8B%A4%EC%9D%B4%EC%96%B4%EA%B7%B8%EB%9E%A8)
+13. v-model 
     - 테그에 쓰이며 데이터를 매핑 
-13. created 
+14. created 
     - lifecycle hook when created 
 
 

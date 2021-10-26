@@ -5,11 +5,13 @@ export const namespace = 'HELLO';
 
 export const types = {
     SET_HELLO_KEY: 'setHelloKey',
-    GET_HELLO_KEY: 'getHelloKey'
+    GET_HELLO_KEY: 'getHelloKey',
+    ADD_COUNT: 'addCount'
 }
 
 const state = {
-    helloKey: "hello kEY"
+    helloKey: "hello kEY",
+    count: 0
 }
 
 const mutations = {
@@ -22,7 +24,11 @@ const actions = {
      [types.GET_HELLO_KEY]({commit}) {
          console.log(commit)
         return new Promise();
-    }
+    },
+    [types.ADD_COUNT]() {
+        state.count = state.count + 1;
+    },
+
 }
 
 export const helloStore = {
