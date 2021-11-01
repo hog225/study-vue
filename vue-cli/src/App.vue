@@ -5,6 +5,8 @@
       <TodoInput></TodoInput>
       <TodoList></TodoList>
       <TodoFooter></ToDoFooter>
+      <lodash-test></lodash-test>
+      <refs-test></refs-test>
 
   </div>
 </template>
@@ -16,6 +18,8 @@ import TodoInput from './components/TodoInput.vue'
 import TodoList from './components/TodoList.vue'
 import TodoFooter from './components/TodoFooter.vue'
 import store from './store/index'
+import LodashTest from './components/LodashTest.vue'
+import RefsTest from './components/RefsTest.vue'
 
 // var my_comp = {
 //     template: '<div>my Component </div>'
@@ -30,6 +34,8 @@ export default {
         'TodoInput': TodoInput,
         'TodoList': TodoList,
         'TodoFooter': TodoFooter,
+        LodashTest,
+        RefsTest,
     
     }
 

@@ -4,14 +4,14 @@
       <div>use mapState1 : {{ count }}</div>
       <div>use mapState2 : {{ stateCount }}</div>
       
-      <button @click="this.addCount" type="button">mapActionTest</button>
+      <button @click="addMutation(5)" type="button">mapActionTest</button>
       
 
   </div>
 </template>
 
 <script>
-import {mapState, mapActions} from 'vuex'
+import {mapState, mapActions, mapMutations} from 'vuex'
 export default {
 
   computed: {
@@ -22,7 +22,12 @@ export default {
     })
   },
   methods: {
-    ...mapActions('HELLO', ['addCount']),
+    ...mapMutations('HELLO', {
+      addMutation: 'addCount'
+    }),
+    ...mapActions('HELLO', {
+      addAction: 'addCount'
+    }),
     clickMethod: function(){
       console.log("hello")
     }

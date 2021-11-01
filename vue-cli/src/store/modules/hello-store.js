@@ -17,7 +17,10 @@ const state = {
 const mutations = {
     [types.SET_HELLO_KEY](state, payload) {
         state.helloKey = payload
-    }
+    },
+    [types.ADD_COUNT](state, payload) {
+        state.count = state.count + payload
+    },
 }
 
 const actions = {
@@ -25,8 +28,8 @@ const actions = {
          console.log(commit)
         return new Promise();
     },
-    [types.ADD_COUNT]() {
-        state.count = state.count + 1;
+    [types.ADD_COUNT](context) {
+        context.commit(types.ADD_COUNT)
     },
 
 }
